@@ -1,0 +1,30 @@
+<div style="text-align:left">
+ 
+    <style>
+              * {
+            box-sizing: border-box;
+       }
+
+      table, td {
+        border: 1px solid #0e0d0d;
+       }
+
+        </style>
+
+<div multi="true" *ngIf="scores.length > 0">
+  <div *ngFor="let s of scores">
+  
+      <strong>{{s.country_name}}{{s.league_name}}</strong>
+      <table id="myTable"><tr>
+        <td>{{s.match_hometeam_name}} </td>
+        <td>{{s.match_hometeam_score}} </td>
+        <td>{{s.match_awayteam_score}} </td>
+        <td>{{s.match_awayteam_name}} </td> 
+     <!-- {{s.goalscorer[0].time}} {{s.goalscorer[0].away_scorer}}  - {{s.goalscorer[1].time}} {{s.goalscorer[1].home_scorer}}-->
+       </tr>
+    </table>
+  </div>
+  
+
+</div>
+<p class="info-text mat-body-1" *ngIf="scores.length <= 0">We are loading your matches.</p> 

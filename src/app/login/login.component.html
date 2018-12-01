@@ -1,0 +1,52 @@
+
+<style>
+  .mat-button, .mat-raised-button{
+    background-color:orange;
+} 
+.mat-fab{
+    background-color:orange;
+} 
+</style>
+
+<mat-card>
+    <form align="left" (submit)="onUserLogin(loginForm)" #loginForm="ngForm">
+        <strong>Username:</strong>
+        <input
+          type="text"
+          name="username"
+          placeholder="Username"
+          required
+          size="12"
+          ngModel
+          required
+          #username="ngModel">
+        <mat-error *ngIf="username.invalid"></mat-error>
+        <strong>Password:</strong>
+          <input
+            type="text"
+            name="password"
+            type="password"
+            placeholder="Password"
+            size="12"
+            ngModel
+            minlength="3"
+            required
+            #password="ngModel">
+          <mat-error *ngIf="password.invalid"></mat-error>
+      <br><br>
+      <!-- Disabled the login button if you login succesfully-->
+      <button
+        mat-raised-button
+        color="accent"
+        type="submit"
+        matTooltip="Click to Login"
+        [disabled]="isLogin">LOGIN</button>
+    </form>
+  </mat-card><br>
+
+  
+<div align="left" multi="true" *ngIf="isLogin==true"> 
+    <!-- If you login succesfully  show a logout button-->
+<button  mat-fab (click)="refresh()" matTooltip="Click to Logout">LOGOUT</button><br><br>
+
+<p class="info-text mat-body-1" *ngIf="passwordCnt.length <= 0">No Account Found</p>

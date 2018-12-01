@@ -1,0 +1,80 @@
+
+<div style="text-align:left">
+ 
+    <style>
+              * {
+            box-sizing: border-box;
+       }
+
+      table, td {
+        border: 1px solid #1b1a1a;
+       }
+  
+        /* Create three unequal columns that floats next to each other */
+        .column {
+          
+            float: left;
+            padding: 10px;
+            height: 100000px;
+        }
+  
+        .left, .right {
+          width: 50%;
+        }
+  
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        </style>
+   
+  <div class="row">
+  
+       <!--First column-->
+      <div class="column left" style="background-color:#FFC300;"><h3>Primeira Liga Fixtures & Results.</h3>
+        <div multi="true" *ngIf="primeiraLigaScores.length > 0">
+            <table id="myTable"><tr>
+            <div *ngFor="let e of primeiraLigaScores">
+                     <strong> Date: {{e.match_date}} </strong>
+                      <td>{{e.match_hometeam_name}} </td>
+                      <td>{{e.match_hometeam_score}} </td>
+                      <td>{{e.match_awayteam_score}} </td>
+                      <td>{{e.match_awayteam_name}} </td>        
+            </div>
+          </tr>
+        </table>
+      
+      </div>
+          <div class="info-text mat-body-1" *ngIf="primeiraLigaScores.length <= 0">Loading...</div>
+        </div>
+    
+      <!--last column-->
+      <div class="column left" style="background-color:#FFC300;"><h3>Standing</h3>
+        
+        <!--Display information/dat read from the football/api api-->
+        <strong>Position  Team  W  D  L  GS  GC  Pts</strong>
+        <div multi="true" *ngIf="primeiraLigaStanding.length > 0">
+            <table id="myTable"><tr>
+                <div  *ngFor="let es of primeiraLigaStanding">
+                    <td>{{es.overall_league_position}} </td>
+                    <td>{{es.team_name}} </td>
+                    <td>{{es.overall_league_W}} </td>
+                    <td>{{es.overall_league_D}} </td> 
+                    <td>{{es.overall_league_L}} </td> 
+                    <td>{{es.overall_league_GF}} </td> 
+                    <td>{{es.overall_league_GA}} </td> 
+                    <td>{{es.overall_league_PTS}} </td>      
+            </div>
+          </tr>
+        </table>
+      
+        <!--Let the user know you are searching for their information to be displayed-->
+      </div>
+      <div class="info-text mat-body-1" *ngIf="primeiraLigaStanding.length <= 0">Loading...</div>
+        </div>
+  
+      </div>
+  
+    </div>

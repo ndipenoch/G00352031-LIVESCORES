@@ -1,0 +1,33 @@
+
+  
+<button  matTooltip="Click to Logout" mat-button (click)="refresh()" style="background-color:green" >LOGOUT</button><br><br>
+<div mat-dialog-content  style="background-color:#FFC300">
+
+    <strong>Welcome !</strong><br><br>
+    <strong>Inbox: {{ details.length}}</strong><br><br>
+    <!--Include a counter i to show the number of messages in the inbox-->
+    <!--Display the information read from the server-->
+  <div  *ngFor="let info of details; let i = index;">
+    <strong>{{i+1}} :</strong><br>
+   <strong>Name: </strong>{{ info.fullname }}<br>
+   <strong>City: </strong>{{ info.city }}<br>
+    <strong>country: </strong>{{ info.country }}<br>
+      <strong>Telephone:</strong> {{ info.telephone }}<br>
+      <strong>Email:</strong>{{ info.email }}<br>
+        <strong>Message: </strong>{{ info.message }}<br>
+     
+    <!--Show the Delete/Edit button and call the respective functions-->
+    <!--Also close the pop up window once the Edit button is closed too-->
+    <mat-action-row>
+      <button mat-fab color="primary" matTooltip="Click to Edit" [routerLink]="['/edit', info._id]" (click)="onNoClick()">EDIT</button>
+       -
+      <button mat-fab  matTooltip="Click to Delete" (click)="onDelete(info._id)" mat-button color="warn">DELETE</button>
+    </mat-action-row><br><br>
+  </div>
+
+</div>
+
+<!--Close the pop up window-->
+<div mat-dialog-actions>
+  <button matTooltip="Click to close window" mat-button (click)="onNoClick()" style="background-color:Red">CLOSE</button>
+</div>

@@ -1,0 +1,88 @@
+<div style="text-align:center"></div>
+
+<style>
+    .mat-button, .mat-raised-button{
+      background-color:orange;
+  } 
+ 
+  </style>
+  
+  <mat-card>
+    <form  style="background-color:#FFC300;text-align:center;" align="left" (submit)="onEditAccount(detailForm)" #detailForm="ngForm">
+      <br> <h3> <marquee behavior="scroll" direction="left">Welcome to update!</marquee></h3>
+        <strong>Name:</strong><br>
+        <input
+          type="text"
+          name="fullname"
+          placeholder="Full Name"
+          size="30"
+          ngModel={{detail[0]?.fullname}}
+          required
+          minlength="3"
+          #fullname="ngModel">
+        <mat-error *ngIf="fullname.invalid"></mat-error><br>
+        <strong>City:</strong><br>
+        <input
+          type="text"
+          name="city"
+          placeholder="City"
+          required
+          size="30"
+          ngModel={{detail[0]?.city}}
+          required
+          #city="ngModel">
+        <mat-error *ngIf="city.invalid"></mat-error><br>
+        <strong>Country:</strong><br>
+        <input
+          type="text"
+          name="country"
+          placeholder="Country"
+          required
+          size="30"
+          ngModel={{detail[0]?.country}}
+          required
+          #country="ngModel">
+        <mat-error *ngIf="country.invalid"></mat-error><br>
+        <strong>Telephone:</strong><br>
+        <input
+          type="text"
+          name="telephone"
+          placeholder="Numbers Only"
+          required
+          size="30"
+          ngModel={{detail[0]?.telephone}}
+          required
+          #telephone="ngModel">
+        <mat-error *ngIf="telephone.invalid"></mat-error><br>
+          <strong>Email:</strong><br>
+          <input
+            type="text"
+            name="email"
+            placeholder="Email"
+            required
+            size="30"
+            ngModel={{detail[0]?.email}}
+            required
+            #email="ngModel">
+          <mat-error *ngIf="email.invalid"></mat-error><br>
+          <strong>Message:</strong><br>
+          <textarea
+            name="message"
+            placeholder="Your message here..."
+            rows="10" 
+            cols="30"
+            ngModel={{detail[0]?.message}}
+            minlength="3"
+            required
+            #message="ngModel"></textarea>
+          <mat-error *ngIf="message.invalid"></mat-error><br>
+    
+      <button
+        mat-raised-button
+        color="accent"
+        matTooltip="Click to Update"
+        type="submit">UPDATE</button><br><br>
+    </form>
+  </mat-card>
+    
+  

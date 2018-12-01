@@ -1,21 +1,94 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<!--App layout and information displayed to the client/cleint view.-->
 
-<router-outlet></router-outlet>
+<div style="text-align:center">
+    
+<marquee behavior="alternate" direction="left">
+ 
+  <img src="./assets/football1.jpg" width="32" height="32" alt="Natural"/>--
+  <img src="./assets/soccer.gif" width="32" height="32" alt="Natural"/>--
+  <img src="./assets/soccer1.gif" width="32" height="32" alt="Natural"/>--
+  <img src="./assets/soccer3.gif" width="32" height="32" alt="Natural"/>--
+  <img src="./assets/football1.jpg" width="32" height="32" alt="Natural"/>
+  
+ </marquee>
+ 
+ 
+  <style>
+            * {
+          box-sizing: border-box;
+      }
+
+      /* Create three unequal columns that floats next to each other */
+      .column {
+          float: left;
+          padding: 10px;
+          height: 100000px; 
+      }
+
+      .left, .right {
+        width: 25%;
+      }
+
+      .middle {
+        width: 50%;
+      }
+
+      /* Clear floats after the columns */
+      .row:after {
+          content: "";
+          display: table;
+          clear: both;
+      }
+
+      .mat-button{
+    color:black;
+} 
+      </style>
+    
+
+<!--First Column of the main page-->
+<div class="row">
+    <div class="column left" style="background-color:#FFC300;">
+      <h2>Livescores</h2>
+      <app-livescores-details></app-livescores-details>
+    </div>
+    
+    <!--Middle Column of the main page-->
+    <div class="column middle" style="background-color:black;">
+        <mat-toolbar > 
+            <mat-toolbar-row>
+          <button matTooltip="EPL" mat-button [routerLink]="['/england']" style="background-color:#FFC300;">England</button>
+          <button matTooltip="La Liga" mat-button [routerLink]="['/spain']" style="background-color:#FFC300;">Spain</button>
+          <button matTooltip="Seria A" mat-button [routerLink]="['/italy']" style="background-color:#FFC300;">Italy</button>
+          <button matTooltip="Bundesliga" mat-button [routerLink]="['/germany']" style="background-color:#FFC300;">Germany</button>
+          <button matTooltip="Ligue 1" mat-button [routerLink]="['/france']" style="background-color:#FFC300;">France</button>
+          <button matTooltip="Primeira Liga" mat-button [routerLink]="['/portugal']" style="background-color:#FFC300;">Portugal</button>
+          <button matTooltip="Eredivisie" mat-button [routerLink]="['/netherland']"  style="background-color:#FFC300;">Netherland</button>
+          <button matTooltip="Jupiler Pro League" mat-button [routerLink]="['/belgium']"  style="background-color:#FFC300;">Belgium</button>
+        
+        </mat-toolbar-row>
+         </mat-toolbar>
+
+
+         <router-outlet></router-outlet>
+    </div>
+<!--last Column of the main page-->
+    <div class="column left"  style="background-color:#FFC300;"><h2>Contact Us.</h2>
+        
+       <!--First column-->
+      <div class="column middle" style="background-color:#FFC300;"><strong>Admin Portal</strong>
+        <app-login></app-login>
+      </div>
+    
+      <!--last column-->
+      <div class="column middle" style="background-color:#FFC300;"><strong>Email Us</strong>
+        <app-send-request></app-send-request>
+        </div>
+      
+    </div>
+
+
+  </div>
+
+
+

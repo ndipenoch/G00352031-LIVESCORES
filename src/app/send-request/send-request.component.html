@@ -1,0 +1,83 @@
+
+
+<style>
+  .mat-button, .mat-raised-button{
+    background-color:orange;
+} 
+</style>
+<!--Fill a form to send data to the server-->
+<mat-card>
+  <form align="left" (submit)="onAddAccount(detailForm)" #detailForm="ngForm">
+      <strong>Name:</strong>
+      <input
+        type="text"
+        name="fullname"
+        placeholder="Full Name"
+        size="12"
+        ngModel
+        required
+        #fullname="ngModel">
+      <mat-error *ngIf="fullname.invalid"></mat-error>
+      <strong>City:</strong>
+      <input
+        type="text"
+        name="city"
+        placeholder="City"
+        required
+        size="12"
+        ngModel
+        required
+        #city="ngModel">
+      <mat-error *ngIf="city.invalid"></mat-error>
+      <strong>Country:</strong>
+      <input
+        type="text"
+        name="country"
+        placeholder="Country"
+        required
+        size="12"
+        ngModel
+        #country="ngModel">
+      <mat-error *ngIf="country.invalid"></mat-error>
+      <strong>Telphone:</strong>
+      <input
+        type="text"
+        name="telephone"
+        placeholder="Mobile number"
+        required
+        size="12"
+        ngModel
+        required
+        #telephone="ngModel">
+      <mat-error *ngIf="telephone.invalid"></mat-error>
+        <strong>Email:</strong>
+        <input
+          type="text"
+          name="email"
+          placeholder="Email"
+          required
+          size="12"
+          ngModel
+          required
+          #email="ngModel">
+        <mat-error *ngIf="email.invalid"></mat-error>
+        <strong>Message:</strong>
+        <textarea
+          name="message"
+          placeholder="Your message here..."
+          rows="6" 
+          cols="13"
+          ngModel
+          required
+          #message="ngModel"></textarea>
+        <mat-error *ngIf="message.invalid"></mat-error>
+    <br><br>
+    <button
+      mat-raised-button
+      color="accent"
+      matTooltip="Click to Send"
+      type="submit">SEND</button>
+  </form>
+</mat-card>
+  
+
