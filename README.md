@@ -1,6 +1,4 @@
-Name: Mark Ndipenoch
-ID: G00352031
-                                                           Livescores
+
 My single page angular app is a livescores web page.
 It provides real time livescores for football matches around the world with fixtures, results and table standing for 8 of Europe’s top football division.
 Also, any users or clients can contact us by filling an online form on the website to report any issues, suggestions...ect.
